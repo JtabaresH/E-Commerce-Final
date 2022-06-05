@@ -4,7 +4,7 @@ import '../styles/LoadingScreen.css';
 const LoadingScreen = () => {
   return (
     <div className="overlay">
-      <div class="lds-dual-ring"></div>
+      <div className="lds-dual-ring"></div>
     </div>
   );
 };

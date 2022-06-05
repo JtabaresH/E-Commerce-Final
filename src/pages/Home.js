@@ -3,15 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, filterTypeProduct } from '../store/slices/products.slice';
-import {
-  Button,
-  Card,
-  Col,
-  FormControl,
-  InputGroup,
-  ListGroup,
-  Row,
-} from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -77,6 +69,7 @@ const Home = () => {
           <div
             className="card"
             style={{ cursor: 'pointer' }}
+            key={productsItem.id}
             onClick={() => navigate(`/products/${productsItem.id}`)}
           >
             <h1>{productsItem.title}</h1>
