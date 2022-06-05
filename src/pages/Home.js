@@ -56,7 +56,7 @@ const Home = () => {
         />
         <button
           className="btn btn-outline-secondary"
-          style={{ color: 'white' }}
+          style={{ color: 'white ' }}
           id="button-addon2"
           onClick={filterProduct}
         >
