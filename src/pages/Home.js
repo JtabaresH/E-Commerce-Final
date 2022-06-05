@@ -29,7 +29,7 @@ const Home = () => {
       .get(
         'https://ecommerce-api-react.herokuapp.com/api/v1/products/categories/'
       )
-      .then((res) => setCategories(res.data.categories));
+      .then((res) => setCategories(res.data.data?.categories));
   }, []);
 
   const filterProduct = () => {
@@ -37,57 +37,58 @@ const Home = () => {
   };
 
   const selectCategory = (id) => {
-    alert(id);
+    dispatch(filterProduct(id));
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Home</h1>
 
-      <ListGroup>
+      <div className="list-group">
         {categories.map((category) => (
-          <ListGroup.Item
+          <div
+            className="list-item"
             key={category.id}
             onClick={() => selectCategory(category.id)}
           >
             {category.name}
-          </ListGroup.Item>
+          </div>
         ))}
-      </ListGroup>
+      </div>
 
-      <InputGroup className="mb-3">
+      <div className="input-group mb-3">
         <FormControl
           placeholder="Category of product"
           onChange={(e) => setSearch(e.target.value)}
           value={search}
         />
-        <Button
-          variant="outline-secondary"
+        <button
+          className="btn btn-outline-secondary"
+          style={{ color: 'white' }}
           id="button-addon2"
           onClick={filterProduct}
         >
           Button
-        </Button>
-      </InputGroup>
+        </button>
+      </div>
 
-      <Row xs={1} md={2} lg={3} className="g-4">
+      <div className="row justify-content-center mt-5" style={{ gap: '15px' }}>
         {products.map((productsItem) => (
-          <Col>
-            <Card
-              style={{ cursor: 'pointer' }}
-              onClick={() => navigate(`/products/${productsItem.id}`)}
-            >
-              <h1>{productsItem.title}</h1>
-              <img
-                src={productsItem.productImgs}
-                alt=""
-                style={{ maxWidth: '300px' }}
-              />
-              <span>{productsItem.description}</span>
-            </Card>
-          </Col>
+          <div
+            className="card"
+            style={{ cursor: 'pointer' }}
+            onClick={() => navigate(`/products/${productsItem.id}`)}
+          >
+            <h1>{productsItem.title}</h1>
+            <img
+              src={productsItem.productImgs}
+              alt=""
+              style={{ maxWidth: '300px' }}
+            />
+            <span>{productsItem.description}</span>
+          </div>
         ))}
-      </Row>
+      </div>
     </div>
   );
 };
