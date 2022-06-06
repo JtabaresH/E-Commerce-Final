@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterCategory } from '../store/slices/products.slice';
+import { filterTypeProduct } from '../store/slices/products.slice';
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
+  const productList = useSelector((state) => state.product);
 
   useEffect(() => {
     axios
@@ -18,11 +18,18 @@ const ProductDetail = () => {
           (productItem) => productItem.id === Number(id)
         );
         setProduct(productSearched);
-        dispatch(filterCategory(res.data.data?.product));
+        dispatch(filterCategory(res.data));
       });
   }, [dispatch, id]);
 
-  return <h1>ProductDetail</h1>;
+  console.log(product);
+
+  return (
+    <div className="card">
+      <h1>ProductDetail</h1>
+      <h1>{product.data?.product.title}</h1>
+    </div>
+  );
 };
 
 export default ProductDetail;
