@@ -77,7 +77,14 @@ const Home = () => {
               alt=""
               style={{ maxWidth: '300px', maxHeight: '300px' }}
             />
-            <span>{productsItem.description}</span>
+            <div class="input-group mb-3 mt-3">
+              <span className="form-control text-center">
+                {productsItem.price}
+              </span>
+              <button class="btn btn-success" type="button" id="">
+                Add Cart
+              </button>
+            </div>
           </div>
         ))}
       </div>

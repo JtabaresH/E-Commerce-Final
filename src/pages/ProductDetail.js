@@ -12,13 +12,14 @@ const ProductDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
+      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/`)
       .then((res) => {
         const productSearched = res.data.find(
           (productItem) => productItem.id === Number(id)
         );
-        setProduct(productSearched);
-        dispatch(filterCategory(res.data));
+        console.log(productSearched);
+        /* setProduct(productSearched);
+        dispatch(filterCategory(res.data)); */
       });
   }, [dispatch, id]);
 
