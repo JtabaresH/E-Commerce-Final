@@ -56,7 +56,6 @@ const Home = () => {
         />
         <button
           className="btn btn-outline-secondary"
-          style={{ color: 'white ' }}
           id="button-addon2"
           onClick={filterProduct}
         >
@@ -76,7 +75,7 @@ const Home = () => {
             <img
               src={productsItem.productImgs}
               alt=""
-              style={{ maxWidth: '300px' }}
+              style={{ maxWidth: '300px', maxHeight: '300px' }}
             />
             <span>{productsItem.description}</span>
           </div>
