@@ -24,14 +24,14 @@ const Home = () => {
       .then((res) => setCategories(res.data?.data.categories));
   }, []);
 
-  console.log(categories)
+  console.log(categories);
 
   const filterProduct = () => {
     dispatch(filterTypeProduct(search));
   };
 
   const selectCategory = (id) => {
-    dispatch(filterProduct(id));
+    alert(id);
   };
 
   return (
@@ -44,6 +44,7 @@ const Home = () => {
             className="list-group-item"
             key={category.id}
             onClick={() => selectCategory(category.id)}
+            style={{ cursor: 'pointer' }}
           >
             {category.name}
           </div>
