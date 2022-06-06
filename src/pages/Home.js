@@ -21,8 +21,10 @@ const Home = () => {
       .get(
         'https://ecommerce-api-react.herokuapp.com/api/v1/products/categories/'
       )
-      .then((res) => setCategories(res.data.data?.categories));
+      .then((res) => setCategories(res.data?.data.categories));
   }, []);
+
+  console.log(categories)
 
   const filterProduct = () => {
     dispatch(filterTypeProduct(search));
@@ -39,7 +41,7 @@ const Home = () => {
       <div className="list-group">
         {categories.map((category) => (
           <div
-            className="list-item"
+            className="list-group-item"
             key={category.id}
             onClick={() => selectCategory(category.id)}
           >
@@ -69,19 +71,20 @@ const Home = () => {
             className="card"
             style={{ cursor: 'pointer' }}
             key={productsItem.id}
-            onClick={() => navigate(`/products/${productsItem.id}`)}
           >
-            <h1>{productsItem.title}</h1>
-            <img
-              src={productsItem.productImgs}
-              alt=""
-              style={{ maxWidth: '300px', maxHeight: '300px' }}
-            />
-            <div class="input-group mb-3 mt-3">
+            <div onClick={() => navigate(`/products/${productsItem.id}`)}>
+              <h3>{productsItem.title}</h3>
+              <img
+                src={productsItem.productImgs}
+                alt=""
+                style={{ maxWidth: '300px', maxHeight: '300px' }}
+              />
+            </div>
+            <div className="input-group mb-3 mt-3">
               <span className="form-control text-center">
-                {productsItem.price}
+                <b>{productsItem.price}</b>
               </span>
-              <button class="btn btn-success" type="button" id="">
+              <button className="btn btn-success" type="button" id="">
                 Add Cart
               </button>
             </div>

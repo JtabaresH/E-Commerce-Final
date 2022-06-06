@@ -23,7 +23,7 @@ const ProductDetail = () => {
       });
   }, [dispatch, id]);
 
-  console.log(product);
+  /* console.log(product); */
 
   return (
     <div className="card">
