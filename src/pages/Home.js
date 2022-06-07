@@ -31,7 +31,7 @@ const Home = () => {
   };
 
   const selectCategory = (id) => {
-    alert(id);
+    dispatch(filterCategory(id));
   };
 
   return (
