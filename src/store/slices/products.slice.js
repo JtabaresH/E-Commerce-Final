@@ -35,7 +35,7 @@ export const filterTypeProduct = (query) => (dispatch) => {
 export const filterCategory = (id) => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios
-    .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
+    .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${id}`)
     .then((res) => dispatch(setproducts(res.data.data?.product)))
     .finally(() => dispatch(setIsLoading(false)));
 };
