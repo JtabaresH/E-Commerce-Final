@@ -11,7 +11,7 @@ const Login = () => {
 
   const submit = (data) => {
     axios
-      .post('https://news-app-academlo.herokuapp.com/login/', data)
+      .post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
       .then((res) => {
         localStorage.setItem('token', res.data.access);
         navigate('/');
