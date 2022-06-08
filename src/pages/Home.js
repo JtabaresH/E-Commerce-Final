@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, filterTypeProduct } from '../store/slices/products.slice';
+import {
+  getProducts,
+  filterHeadline,
+  filterCategory,
+} from '../store/slices/products.slice';
 import { FormControl } from 'react-bootstrap';
 
 const Home = () => {
@@ -27,7 +31,7 @@ const Home = () => {
   console.log(categories);
 
   const filterProduct = () => {
-    dispatch(filterTypeProduct(search));
+    dispatch(filterHeadline(search));
   };
 
   const selectCategory = (id) => {
