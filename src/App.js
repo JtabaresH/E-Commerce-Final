@@ -10,8 +10,8 @@ export default function App() {
   return (
     <>
       <HashRouter>
+        <Navbar />
         <Container>
-          <Navbar />
           {isLoading && <LoadingScreen />}
           <Routes>
             <Route path="/" element={<Home />} />

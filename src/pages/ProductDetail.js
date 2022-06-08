@@ -28,8 +28,12 @@ const ProductDetail = () => {
 
   return (
     <div className="card">
-      <h1>ProductDetail</h1>
-      <h1>{products.title}</h1>
+      <h3>{products.title}</h3>
+      <img
+        src={products.productImgs}
+        alt=""
+        style={{ maxWidth: '300px', maxHeight: '300px' }}
+      />
       {productsList.map((productList) => (
         <li
           onClick={() => navigate(`/products/${productList.id}`)}

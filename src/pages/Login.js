@@ -29,7 +29,7 @@ const Login = () => {
     <div>
       <Card style={{ maxWidth: '500px' }} className="mx-auto">
         <Card.Body>
-          <h1>Login</h1>
+          <h1 className="text-center">Login</h1>
           <Form onSubmit={handleSubmit(submit)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
