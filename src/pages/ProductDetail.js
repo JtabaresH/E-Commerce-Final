@@ -34,6 +34,7 @@ const ProductDetail = () => {
         <li
           onClick={() => navigate(`/products/${productList.id}`)}
           key={productList.id}
+          style={{ cursor: 'pointer' }}
         >
           {productList.title}
         </li>
