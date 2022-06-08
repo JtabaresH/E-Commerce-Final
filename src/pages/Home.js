@@ -28,7 +28,7 @@ const Home = () => {
       .then((res) => setCategories(res.data?.data.categories));
   }, []);
 
-  console.log(categories);
+  /* console.log(categories); */
 
   const filterProduct = () => {
     dispatch(filterHeadline(search));

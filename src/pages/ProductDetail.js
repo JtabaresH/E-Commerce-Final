@@ -19,7 +19,6 @@ const ProductDetail = () => {
         const productSearched = res.data.data.products.find(
           (productsItem) => productsItem.id === Number(id)
         );
-        console.log(productSearched);
         setProducts(productSearched);
         dispatch(filterCategory(productSearched.category.id));
       });
