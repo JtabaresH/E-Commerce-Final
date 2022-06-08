@@ -21,7 +21,7 @@ const Navbar = () => {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-menu-button"
+            className="bi bi-menu-button"
             viewBox="0 0 16 16"
           >
             <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h8A1.5 1.5 0 0 1 11 1.5v2A1.5 1.5 0 0 1 9.5 5h-8A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-8z" />
@@ -40,7 +40,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/#/products">
                 Products
               </a>
             </li>
