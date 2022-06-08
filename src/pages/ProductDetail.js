@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { filterCategory } from '../store/slices/products.slice';
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState({});
+  const [products, setProducts] = useState({});
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,7 +30,15 @@ const ProductDetail = () => {
   return (
     <div className="card">
       <h1>ProductDetail</h1>
-      <h1>{product.title}</h1>
+      <h1>{products.title}</h1>
+      {productsList.map((productList) => (
+        <li
+          onClick={() => navigate(`/products/${productList.id}`)}
+          key={productList.id}
+        >
+          {productList.title}
+        </li>
+      ))}
     </div>
   );
 };
