@@ -76,12 +76,14 @@ const Home = () => {
             key={productsItem.id}
           >
             <div onClick={() => navigate(`/products/${productsItem.id}`)}>
-              <h3>{productsItem.title}</h3>
-              <img
-                src={productsItem.productImgs}
-                alt=""
-                style={{ maxWidth: '300px', maxHeight: '300px' }}
-              />
+              <h3 className="text-center">{productsItem.title}</h3>
+              <div className="d-flex justify-content-center">
+                <img
+                  src={productsItem.productImgs}
+                  alt=""
+                  style={{ maxWidth: '300px', maxHeight: '300px' }}
+                />
+              </div>
             </div>
             <div className="input-group mb-3 mt-3">
               <span className="form-control text-center">
