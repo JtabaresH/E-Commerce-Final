@@ -42,8 +42,8 @@ const Home = () => {
     <div className="container">
       <div className="row ml-0">
         <div className="col order-first">
-          <b>Categories</b>
-          <div className="list-group">
+          <div className="list-group list-group-flush">
+            <b className="text-decoration-underline">Categories</b>
             {categories.map((category) => (
               <div
                 className="list-group-item"
