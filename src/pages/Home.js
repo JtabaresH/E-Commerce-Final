@@ -40,9 +40,9 @@ const Home = () => {
 
   return (
     <div className="container">
-      <div className="row ml-0">
+      <div className="row">
         <div className="col order-first">
-          <div className="list-group list-group-flush">
+          <div className="list-group">
             <b className="text-decoration-underline">Categories</b>
             {categories.map((category) => (
               <div
@@ -57,7 +57,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="col-10">
+        <div className="col-10 mt-5">
           <div className="input-group mb-3">
             <FormControl
               placeholder="Category of product"
