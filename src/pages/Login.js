@@ -11,7 +11,10 @@ const Login = () => {
 
   const submit = (data) => {
     axios
-      .post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
+      .post(
+        'https://ecommerce-api-react.herokuapp.com/api/v1/users/login',
+        data
+      )
       .then((res) => {
         localStorage.setItem('token', res.data.access);
         navigate('/');
@@ -30,6 +33,15 @@ const Login = () => {
       <Card style={{ maxWidth: '500px' }} className="mx-auto">
         <Card.Body>
           <h1 className="text-center">Login</h1>
+          <div className="card">
+            <h6>User Test</h6>
+            <p>
+              <b>Email: </b>mason@gmail.com
+            </p>
+            <p>
+              <b>Password: </b>mason1234
+            </p>
+          </div>
           <Form onSubmit={handleSubmit(submit)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
