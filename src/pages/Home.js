@@ -40,61 +40,70 @@ const Home = () => {
 
   return (
     <div className="container">
-      <div className="list-group">
-        {categories.map((category) => (
-          <div
-            className="list-group-item"
-            key={category.id}
-            onClick={() => selectCategory(category.id)}
-            style={{ cursor: 'pointer' }}
-          >
-            {category.name}
-          </div>
-        ))}
-      </div>
-
-      <div className="input-group mb-3">
-        <FormControl
-          placeholder="Category of product"
-          onChange={(e) => setSearch(e.target.value)}
-          value={search}
-        />
-        <button
-          className="btn btn-outline-secondary"
-          id="button-addon2"
-          onClick={filterProduct}
-        >
-          Button
-        </button>
-      </div>
-
-      <div className="row justify-content-center mt-5" style={{ gap: '15px' }}>
-        {products.map((productsItem) => (
-          <div
-            className="card"
-            style={{ cursor: 'pointer' }}
-            key={productsItem.id}
-          >
-            <div onClick={() => navigate(`/products/${productsItem.id}`)}>
-              <h3 className="text-center">{productsItem.title}</h3>
-              <div className="d-flex justify-content-center">
-                <img
-                  src={productsItem.productImgs}
-                  alt=""
-                  style={{ maxWidth: '300px', maxHeight: '300px' }}
-                />
+      <div className="row">
+        <div className="col order-first">
+          <div className="list-group">
+            {categories.map((category) => (
+              <div
+                className="list-group-item"
+                key={category.id}
+                onClick={() => selectCategory(category.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                {category.name}
               </div>
-            </div>
-            <div className="input-group mb-3 mt-3">
-              <span className="form-control text-center">
-                <b>{productsItem.price}</b>
-              </span>
-              <button className="btn btn-success" type="button" id="">
-                Add Cart
-              </button>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div className="col-10">
+          <div className="input-group mb-3">
+            <FormControl
+              placeholder="Category of product"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+            />
+            <button
+              className="btn btn-outline-secondary"
+              id="button-addon2"
+              onClick={filterProduct}
+            >
+              Button
+            </button>
+          </div>
+
+          <div
+            className="row justify-content-center mt-5"
+            style={{ gap: '15px' }}
+          >
+            {products.map((productsItem) => (
+              <div
+                className="card"
+                style={{ cursor: 'pointer', maxWidth: '300px' }}
+                key={productsItem.id}
+              >
+                <div onClick={() => navigate(`/products/${productsItem.id}`)}>
+                  <h6 className="text-center">{productsItem.title}</h6>
+                  <div className="d-flex justify-content-center">
+                    <img
+                      src={productsItem.productImgs}
+                      alt=""
+                      style={{ maxWidth: '150px', maxHeight: '150px' }}
+                    />
+                  </div>
+                </div>
+                <div className="input-group mb-3 mt-3">
+                  <span className="form-control text-center">
+                    <b>${productsItem.price}</b>
+                  </span>
+                  <button className="btn btn-success" type="button" id="">
+                    Add Cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
