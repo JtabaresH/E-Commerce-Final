@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Navbar } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import CartSidebar from './CartSidebar';
 
@@ -95,8 +94,6 @@ const Navbar = () => {
       </nav>
 
       <CartSidebar show={show} handleClose={handleClose} />
-
-      
     </div>
   );
 };
