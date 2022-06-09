@@ -22,7 +22,7 @@ const CartSidebar = ({ show, handleClose }) => {
         <Offcanvas.Body>
           <ListGroup variant="flush">
             {products.map((product) => (
-              <ListGroup.Item onClick={() => selectProducts(product)}>
+              <ListGroup.Item key={product.id} onClick={() => selectProducts(product)}>
                 {/* {favorite.news.headline}
                 <img src={favorite.news.image} className="img-fluid" alt="" /> */}
               </ListGroup.Item>
