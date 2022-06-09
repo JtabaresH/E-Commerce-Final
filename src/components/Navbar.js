@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import CartSidebar from './CartSidebar';
 
