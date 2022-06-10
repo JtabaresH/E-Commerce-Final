@@ -32,7 +32,7 @@ const CartSidebar = ({ show, handleClose }) => {
             ))}
           </ListGroup>
           <div className="d-flex justify-content-center">
-            <button className="btn btn-danger" onClick>Checkout</button>
+            <button className="btn btn-danger" onClick={() => alert("Carrito comprado")}>Checkout</button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
