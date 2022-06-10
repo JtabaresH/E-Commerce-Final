@@ -51,7 +51,7 @@ const Navbar = () => {
                   style={{ cursor: 'pointer' }}
                   onClick={handleShow}
                 >
-                  <i class="bi bi-cart">{/* Shopping Cart */}</i>
+                  <i className="bi bi-cart">{/* Shopping Cart */}</i>
                 </a>
               </div>
             </div>

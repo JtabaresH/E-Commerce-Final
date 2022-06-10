@@ -21,7 +21,7 @@ const Login = () => {
       )
       .then((res) => {
         localStorage.setItem('token', res.data.access);
-        navigate('/');
+        navigate('/#/');
         alert('Sesión iniciada correctamente');
       })
       .catch((error) => {
