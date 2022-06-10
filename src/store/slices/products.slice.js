@@ -37,3 +37,4 @@ export const filterCategory = (id) => (dispatch) => {
 };
 
 export default productsSlice.reducer;
+
