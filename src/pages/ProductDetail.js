@@ -78,7 +78,7 @@ const ProductDetail = () => {
                   +
                 </button>
               </div>
-              <button className="btn btn-success" onClick={addProduct}>
+              <button className="btn btn-success" /* onClick={addProduct} */>
                 Add Cart
               </button>
             </div>
