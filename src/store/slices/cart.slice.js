@@ -18,7 +18,7 @@ export const { setProducts } = favoritesSlice.actions;
 export const getProducts = () => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios
-    .get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
+    .get('https://ecommerce-api-react.herokuapp.com/api/v1/cart')
     .then((res) => dispatch(setProducts(res.data.data.products)))
     .finally(() => dispatch(setIsLoading(false)));
 };

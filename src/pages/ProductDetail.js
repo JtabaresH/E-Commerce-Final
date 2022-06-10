@@ -25,12 +25,12 @@ const ProductDetail = () => {
       });
   }, [dispatch, id]);
 
-  const addProduct = () => {
+  /* const addProduct = () => {
     const product = {
       product: id,
     };
     dispatch(addToCart(product));
-  };
+  }; */
 
   /* console.log(product); */
 
