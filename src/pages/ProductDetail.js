@@ -43,7 +43,7 @@ const ProductDetail = () => {
             <h3>{products.title}</h3>
             <p>{products.description}</p>
             <div className="d-flex flex-column justify-content-center">
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <span className="form-control" id="price">
                   <b>$ {products.price}</b>
                 </span>
