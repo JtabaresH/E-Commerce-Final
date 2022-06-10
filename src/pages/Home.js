@@ -8,6 +8,7 @@ import {
   filterCategory,
 } from '../store/slices/products.slice';
 import { FormControl } from 'react-bootstrap';
+import { addToCart } from '../store/slices/cart.slice';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,13 @@ const Home = () => {
   const selectCategory = (id) => {
     dispatch(filterCategory(id));
   };
+
+  /* const addProduct = (id) => {
+    const product = {
+      product: id,
+    };
+    dispatch(addToCart(product));
+  }; */
 
   return (
     <div className="container">
@@ -97,7 +105,12 @@ const Home = () => {
                   <span className="form-control text-center">
                     <b>${productsItem.price}</b>
                   </span>
-                  <button className="btn btn-success" type="button" id="">
+                  <button
+                    className="btn btn-success"
+                    type="button"
+                    id=""
+                    /* onClick={addProduct} */
+                  >
                     Add Cart
                   </button>
                 </div>

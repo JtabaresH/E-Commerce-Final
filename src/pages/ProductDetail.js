@@ -32,8 +32,6 @@ const ProductDetail = () => {
     dispatch(addToCart(product));
   }; */
 
-  /* console.log(product); */
-
   return (
     <div className="card">
       <div className="row">
