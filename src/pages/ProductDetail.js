@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterCategory } from '../store/slices/products.slice';
+import { addToCart } from '../store/slices/cart.slice';
 
 const ProductDetail = () => {
   const [products, setProducts] = useState({});
@@ -23,6 +24,13 @@ const ProductDetail = () => {
         dispatch(filterCategory(productSearched.category.id));
       });
   }, [dispatch, id]);
+
+  const addProduct = () => {
+    const product = {
+      product: id,
+    };
+    dispatch(addToCart(product));
+  };
 
   /* console.log(product); */
 
@@ -70,7 +78,9 @@ const ProductDetail = () => {
                   +
                 </button>
               </div>
-              <button className="btn btn-success">Add Cart</button>
+              <button className="btn btn-success" onClick={addProduct}>
+                Add Cart
+              </button>
             </div>
           </div>
         </div>
