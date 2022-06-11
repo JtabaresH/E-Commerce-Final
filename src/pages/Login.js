@@ -25,6 +25,9 @@ const Login = () => {
         navigate('/');
         alert('Sesión iniciada correctamente');
       })
+      .then((res) => {
+        setInfo()
+      })
       .catch((error) => {
         console.log(error.response.status);
         if (error.response.status === 401) {

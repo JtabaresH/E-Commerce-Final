@@ -22,39 +22,35 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col border">
-              <a className="nav-link" href="/#/">
-                <i className="bi bi-cpu">
-                  <b> TechShop</b>
-                </i>
-              </a>
-            </div>
-            <div className="col border">
-              <div className="d-flex gap-3">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/#/login"
-                >
-                  <i className="bi bi-person-badge">{/* Login */}</i>
-                </a>
-                <a className="nav-link" href="/#/purchases">
-                  <i className="bi bi-bag">{/* Purchases */}</i>
-                </a>
-                <a
-                  className="nav-link"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasWithBothOptions"
-                  aria-controls="offcanvasWithBothOptions"
-                  style={{ cursor: 'pointer' }}
-                  onClick={handleShow}
-                >
-                  <i className="bi bi-cart">{/* Shopping Cart */}</i>
-                </a>
-              </div>
-            </div>
+        <div className="container-fluid border">
+          <div>
+            <a className="nav-link" href="/#/">
+              <i className="bi bi-cpu">
+                <b> TechShop</b>
+              </i>
+            </a>
+          </div>
+          <div className="d-flex justify-content-between gap-3">
+            <a
+              className="nav-link active border-start"
+              aria-current="page"
+              href="/#/login"
+            >
+              <i className="bi bi-person-badge">{/* Login */}</i>
+            </a>
+            <a className="nav-link border-start" href="/#/purchases">
+              <i className="bi bi-bag">{/* Purchases */}</i>
+            </a>
+            <a
+              className="nav-link border-start"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasWithBothOptions"
+              aria-controls="offcanvasWithBothOptions"
+              style={{ cursor: 'pointer' }}
+              onClick={handleShow}
+            >
+              <i className="bi bi-cart">{/* Shopping Cart */}</i>
+            </a>
           </div>
         </div>
       </nav>

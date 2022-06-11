@@ -92,7 +92,7 @@ const Home = () => {
                 key={productsItem.id}
               >
                 <div onClick={() => navigate(`/products/${productsItem.id}`)}>
-                  <h6 className="text-center">{productsItem.title}</h6>
+                  <h6 className="text-center mt-2">{productsItem.title}</h6>
                   <div className="d-flex justify-content-center">
                     <img
                       src={productsItem.productImgs}
