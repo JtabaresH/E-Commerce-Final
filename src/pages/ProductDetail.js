@@ -7,6 +7,7 @@ import { addToCart } from '../store/slices/cart.slice';
 
 const ProductDetail = () => {
   const [products, setProducts] = useState({});
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,12 +26,13 @@ const ProductDetail = () => {
       });
   }, [dispatch, id]);
 
-  /* const addProduct = () => {
+  const addProduct = () => {
     const product = {
-      product: id,
+      id: id,
+      quantity: quantity,
     };
     dispatch(addToCart(product));
-  }; */
+  };
 
   return (
     <div className="card">
@@ -57,13 +59,16 @@ const ProductDetail = () => {
                   className="btn btn-outline-secondary"
                   type="button"
                   id="button-addon1"
+                  onClick={() =>
+                    setQuantity(quantity > 1 ? quantity - 1 : quantity)
+                  }
                 >
                   -
                 </button>
                 <input
                   type="text"
-                  className="form-control"
-                  placeholder=""
+                  className="form-control text-center"
+                  placeholder={quantity}
                   aria-label="Example text with button addon"
                   aria-describedby="button-addon1"
                   style={{ maxWidth: '50px' }}
@@ -72,12 +77,18 @@ const ProductDetail = () => {
                   className="btn btn-outline-secondary"
                   type="button"
                   id="button-addon1"
+                  onClick={() => setQuantity(quantity + 1)}
                 >
                   +
                 </button>
               </div>
-              <button className="btn btn-success" /* onClick={addProduct} */>
-                Add Cart
+              <button
+                className="btn btn-success"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                onClick={addProduct}
+              >
+                Add to cart
               </button>
             </div>
           </div>
@@ -106,8 +117,14 @@ const ProductDetail = () => {
               <span className="form-control text-center">
                 <b>${productList.price}</b>
               </span>
-              <button className="btn btn-success" type="button" id="">
-                Add Cart
+              <button
+                className="btn btn-success"
+                type="button"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                onClick={addProduct}
+              >
+                Add to cart
               </button>
             </div>
           </div>

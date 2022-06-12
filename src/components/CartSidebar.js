@@ -18,6 +18,11 @@ const CartSidebar = ({ show, handleClose }) => {
     navigate(`/products/${cartProduct.id}`);
   };
 
+  const total = cart.reduce(
+    (total, prod) => total + prod.productsInCart.quantity * prod.price,
+    0
+  );
+
   return (
     <div>
       <Offcanvas show={show} onHide={handleClose} placement="end">
@@ -97,8 +102,8 @@ const CartSidebar = ({ show, handleClose }) => {
               <label type="text" className="form-control">
                 Total:
               </label>
-              <label type="text" className="form-control">
-                {}
+              <label type="text" className="form-control text-center">
+                ${total}
               </label>
             </div>
             <button
