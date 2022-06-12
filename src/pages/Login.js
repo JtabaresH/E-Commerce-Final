@@ -90,10 +90,11 @@ const Login = () => {
                     placeholder="Password"
                   />
                 </Form.Group>
-                <div className="d-flex justify-content-center mb-3 gap-2">
+                <div className="d-flex flex-column justify-content-center mb-3 gap-2">
                   <Button variant="primary" type="submit">
                     Login
                   </Button>
+                  <p>Don't have an account? <a href="/singup">Sing up</a> </p>
                 </div>
               </Form>
             </div>

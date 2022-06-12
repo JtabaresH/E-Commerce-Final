@@ -24,7 +24,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid border">
           <div>
-            <a className="nav-link" href="/#/">
+            <a className="nav-link" href="/">
               <i className="bi bi-cpu">
                 <b> TechShop</b>
               </i>
