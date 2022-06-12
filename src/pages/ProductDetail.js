@@ -35,6 +35,14 @@ const ProductDetail = () => {
     setQuantity(1);
   };
 
+  const addProductSimilar = (productsList) => {
+    const product = {
+      id: productsList.id,
+      quantity: quantity,
+    };
+    dispatch(addToCart(product));
+  };
+
   return (
     <div className="card">
       <div className="row">
@@ -120,10 +128,9 @@ const ProductDetail = () => {
               </span>
               <button
                 className="btn btn-success"
-                type="button"
                 value={quantity}
-                onChange={(e) => setQuantity(1)}
-                onClick={addProduct}
+                onClick={() => addProductSimilar(productsList)}
+                onChange={() => setQuantity(1)}
               >
                 Add to cart
               </button>
