@@ -39,7 +39,7 @@ const CartSidebar = ({ show, handleClose }) => {
                       className="col-md-4 mt-2 d-flex justify-content-center"
                       onClick={() => selectProducts(cartProduct)}
                     >
-                      <b className="card-title">{cartProduct.title}</b>
+                      <b className="card-title mt-2">{cartProduct.title}</b>
                     </div>
                     <div className="col-md-8">
                       <div className="card-body text-center">
@@ -70,7 +70,7 @@ const CartSidebar = ({ show, handleClose }) => {
                       </div>
                       <div className="input-group mt-2 mb-2">
                         <label type="text" className="form-control">
-                          Subtotal:
+                          Subtotal
                         </label>
                         <label
                           type="text"

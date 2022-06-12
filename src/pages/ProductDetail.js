@@ -53,7 +53,7 @@ const ProductDetail = () => {
             <div className="d-flex flex-column justify-content-center">
               <div className="input-group mb-3">
                 <span className="form-control" id="price">
-                  <b>$ {products.price}</b>
+                  <b>${products.price}</b>
                 </span>
                 <button
                   className="btn btn-outline-secondary"
