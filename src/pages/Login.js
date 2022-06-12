@@ -1,12 +1,13 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const token = localStorage.getItem('token');
-  const { register, handleSubmit } = useForm();
+  const [user, setUser] = useState({});
+  const { register, handleSubmit } = useForm([]);
   const navigate = useNavigate();
   const logout = () => {
     localStorage.setItem('token', '');
@@ -24,9 +25,7 @@ const Login = () => {
         localStorage.setItem('token', res.data.data.token);
         navigate('/');
         alert('Sesión iniciada correctamente');
-      })
-      .then((res) => {
-        setInfo()
+        /* setUser(res.data.data.user); */
       })
       .catch((error) => {
         console.log(error.response.status);
@@ -43,7 +42,7 @@ const Login = () => {
           <h1 className="text-center">Login</h1>
           <div className="card m-3 d-grid justify-content-center">
             <i
-              class="bi bi-person-bounding-box text-success"
+              className="bi bi-person-bounding-box text-success"
               style={{ fontSize: '40px' }}
             ></i>
             <h6>Name</h6>
@@ -72,7 +71,7 @@ const Login = () => {
                 <Form.Group className="m-3 d-grid" controlId="formBasicEmail">
                   <div className="d-flex justify-content-center">
                     <i
-                      class="bi bi-person-bounding-box text-danger"
+                      className="bi bi-person-bounding-box text-danger"
                       style={{ fontSize: '40px' }}
                     ></i>
                   </div>

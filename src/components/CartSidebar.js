@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const CartSidebar = ({ show, handleClose }) => {
-  const products = useSelector((state) => state.products);
-
+  const cartProducts = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
-  const selectProducts = (product) => {
+  const selectProducts = (cartProduct) => {
     handleClose();
-    navigate(`/products/${product.category.id}`);
+    navigate(`/products/${cartProduct.category.id}`);
   };
+  console.log(cartProducts)
 
   return (
     <div>
@@ -21,16 +21,16 @@ const CartSidebar = ({ show, handleClose }) => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ListGroup variant="flush">
-            {products.map((product) => (
-              <ListGroup.Item key={product.id}>
+            {cartProducts.map((cartProduct) => (
+              <ListGroup.Item key={cartProduct.id}>
                 <div className="card mb-3" style={{ maxWidth: '' }}>
                   <div className="row g-0">
                     <div
                       className="col-md-4 mt-2 d-flex justify-content-center"
-                      onClick={() => selectProducts(product)}
+                      onClick={() => selectProducts(cartProduct)}
                     >
                       <img
-                        src={product.productImgs}
+                        src={cartProduct.productImgs}
                         className="img-fluid rounded-start"
                         style={{ maxWidth: '80px', maxHeight: '80px' }}
                         alt=""
@@ -38,7 +38,7 @@ const CartSidebar = ({ show, handleClose }) => {
                     </div>
                     <div className="col-md-8">
                       <div className="card-body">
-                        <b className="card-title">{product.title}</b>
+                        <b className="card-title">{cartProduct.title}</b>
                         <div className="d-flex justify-content-center">
                           <label
                             type="text"
@@ -47,7 +47,7 @@ const CartSidebar = ({ show, handleClose }) => {
                             aria-label="Example text with button addon"
                             aria-describedby="button-addon1"
                           >
-                            $ {product.price}
+                            $ {cartProduct.price}
                           </label>
                           <button
                             className="btn btn-secondary"
