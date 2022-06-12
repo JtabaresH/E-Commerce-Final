@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Login, ProductDetail, Purchases } from './pages';
+import { Home, Login, ProductDetail, Purchases, Singup } from './pages';
 import { LoadingScreen, Navbar, ProtectedRoutes } from './components';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
