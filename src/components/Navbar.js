@@ -30,7 +30,7 @@ const Navbar = () => {
               </i>
             </a>
           </div>
-          <div className="d-flex justify-content-between gap-3">
+          <div className="d-flex justify-content-between">
             <a
               className="nav-link active border-start"
               aria-current="page"

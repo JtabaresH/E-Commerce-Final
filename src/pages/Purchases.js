@@ -32,7 +32,7 @@ const Purchases = () => {
                 <div className="quantity-purchases">
                   {product.productsInCart.quantity}
                 </div>
-                <div className="price-purchase">$ {product.price}</div>
+                <div className="price-purchase">${product.price}</div>
               </div>
             ))}
           </div>

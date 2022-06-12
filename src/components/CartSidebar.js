@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Offcanvas, ListGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getCart } from '../store/slices/cart.slice';
 
 const CartSidebar = ({ show, handleClose }) => {
-  const cartProducts = useSelector((state) => state.cartProducts);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(getCart());
+  }, [dispatch]);
 
   const selectProducts = (cartProduct) => {
     handleClose();
     navigate(`/products/${cartProduct.category.id}`);
   };
+
+  console.log(cart);
 
   return (
     <div>
@@ -20,7 +28,7 @@ const CartSidebar = ({ show, handleClose }) => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ListGroup variant="flush">
-            {cartProducts.map((cartProduct) => (
+            {cart.map((cartProduct) => (
               <ListGroup.Item key={cartProduct.id}>
                 <div className="card mb-3">
                   <div className="row g-0">
@@ -36,27 +44,55 @@ const CartSidebar = ({ show, handleClose }) => {
                       />
                     </div>
                     <div className="col-md-8">
-                      <div className="card-body">
+                      <div className="card-body text-center">
                         <b className="card-title">{cartProduct.title}</b>
-                        <div className="d-flex justify-content-center">
+                        <div className="input-group justify-content-center mt-2">
+                          <button
+                            className="btn btn-outline-secondary"
+                            type="button"
+                            id="button-addon1"
+                          >
+                            -
+                          </button>
                           <label
                             type="text"
                             className="form-control"
                             placeholder=""
-                            aria-label="Example text with button addon"
-                            aria-describedby="button-addon1"
+                            style={{ maxWidth: '50px' }}
                           >
-                            $ {cartProduct.price}
+                            {cartProduct.productsInCart.quantity}
                           </label>
                           <button
-                            className="btn btn-secondary"
+                            className="btn btn-outline-secondary"
                             type="button"
                             id="button-addon1"
                           >
-                            <i class="bi bi-trash"></i>
+                            +
                           </button>
                         </div>
                       </div>
+                      <div className="input-group mt-2 mb-2">
+                        <label type="text" className="form-control">
+                          Subtotal:
+                        </label>
+                        <label
+                          type="text"
+                          className="form-control text-center"
+                          placeholder=""
+                        >
+                          $
+                          {cartProduct.price *
+                            cartProduct.productsInCart.quantity}
+                        </label>
+                        <button
+                          className="btn btn-secondary"
+                          type="button"
+                          id="button-addon1"
+                        >
+                          <i className="bi bi-trash">{/* Delete Product */}</i>
+                        </button>
+                      </div>
+                      <div className="d-flex justify-content-center"></div>
                     </div>
                   </div>
                 </div>

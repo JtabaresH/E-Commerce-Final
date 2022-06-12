@@ -35,7 +35,6 @@
   align-items: center;
 }
 
-
 .box-purchases {
   width: 90%;
   margin: auto;
@@ -66,9 +65,9 @@
 .purchase-title {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
-  width: 8rem;
+  width: 10rem;
   color: #015ed3;
 }
 .quantity-purchases {
@@ -76,7 +75,7 @@
   margin-bottom: 2rem;
   width: 3rem;
   height: 1.5rem;
-  font-size: 12px;
+  font-size: 15px;
   border: 1px solid #dcdcdc;
   display: flex;
   align-items: center;
@@ -86,7 +85,7 @@
 .price-purchase {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 12px;
+  font-size: 15px;
   color: #515151;
 }
 .box-self-purchases {

@@ -2,24 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import getConfig from '../../utils/getConfig';
 import { setIsLoading } from './isLoading.slice';
+/* import { getPurchases } from './purchases.slice'; */
 
 export const cartSlice = createSlice({
-  name: 'cartProducts',
+  name: 'cart',
   initialState: [],
   reducers: {
-    setCartProducts: (state, action) => {
+    setCart: (state, action) => {
       return action.payload;
     },
   },
 });
 
-export const { setCartProducts } = cartSlice.actions;
+export const { setCart } = cartSlice.actions;
 
 export const getCart = () => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios
     .get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
-    .then((res) => dispatch(setCartProducts(res.data.data.cart.products)))
+    .then((res) => dispatch(setCart(res.data.data.cart.products)))
     .finally(() => dispatch(setIsLoading(false)));
 };
 
