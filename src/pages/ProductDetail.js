@@ -32,6 +32,7 @@ const ProductDetail = () => {
       quantity: quantity,
     };
     dispatch(addToCart(product));
+    setQuantity(1);
   };
 
   return (
@@ -48,8 +49,8 @@ const ProductDetail = () => {
         </div>
         <div className="col">
           <div className="mt-3 me-3">
-            <h3>{products.title}</h3>
-            <p>{products.description}</p>
+            <h3 className="text-center">{products.title}</h3>
+            <p className="ms-2">{products.description}</p>
             <div className="d-flex flex-column justify-content-center">
               <div className="input-group mb-3">
                 <span className="form-control" id="price">
@@ -121,7 +122,7 @@ const ProductDetail = () => {
                 className="btn btn-success"
                 type="button"
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e) => setQuantity(1)}
                 onClick={addProduct}
               >
                 Add to cart

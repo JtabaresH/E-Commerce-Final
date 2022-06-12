@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getProducts,
@@ -13,7 +13,8 @@ import { addToCart } from '../store/slices/cart.slice';
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [quantity, setQuantity] = useState(1);
+  const { id } = useParams();
   const [search, setSearch] = useState('');
   const [categories, setCategories] = useState([]);
 
@@ -29,8 +30,6 @@ const Home = () => {
       .then((res) => setCategories(res.data?.data.categories));
   }, []);
 
-  /* console.log(categories); */
-
   const filterProduct = () => {
     dispatch(filterHeadline(search));
   };
@@ -39,12 +38,13 @@ const Home = () => {
     dispatch(filterCategory(id));
   };
 
-  /* const addProduct = (id) => {
+  const addProduct = (productsItem) => {
     const product = {
-      product: id,
+      id: productsItem.id,
+      quantity: quantity,
     };
     dispatch(addToCart(product));
-  }; */
+  };
 
   return (
     <div className="container">
@@ -107,11 +107,11 @@ const Home = () => {
                   </span>
                   <button
                     className="btn btn-success"
-                    type="button"
-                    id=""
-                    /* onClick={addProduct} */
+                    value={quantity}
+                    onClick={() => addProduct(productsItem)}
+                    onChange={() => setQuantity(1)}
                   >
-                    Add Cart
+                    Add to cart
                   </button>
                 </div>
               </div>
