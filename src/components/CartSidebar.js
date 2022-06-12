@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Offcanvas, ListGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getCart } from '../store/slices/cart.slice';
+import { getCart, buyCart, deleteCart } from '../store/slices/cart.slice';
 
 const CartSidebar = ({ show, handleClose }) => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const CartSidebar = ({ show, handleClose }) => {
 
   const selectProducts = (cartProduct) => {
     handleClose();
-    navigate(`/products/${cartProduct.category.id}`);
+    navigate(`/products/${cartProduct.id}`);
   };
 
   return (
@@ -34,16 +34,10 @@ const CartSidebar = ({ show, handleClose }) => {
                       className="col-md-4 mt-2 d-flex justify-content-center"
                       onClick={() => selectProducts(cartProduct)}
                     >
-                      <img
-                        src={cartProduct.productImgs}
-                        className="img-fluid rounded-start"
-                        style={{ maxWidth: '80px', maxHeight: '80px' }}
-                        alt=""
-                      />
+                      <b className="card-title">{cartProduct.title}</b>
                     </div>
                     <div className="col-md-8">
                       <div className="card-body text-center">
-                        <b className="card-title">{cartProduct.title}</b>
                         <div className="input-group justify-content-center mt-2">
                           <button
                             className="btn btn-outline-secondary"
@@ -86,6 +80,7 @@ const CartSidebar = ({ show, handleClose }) => {
                           className="btn btn-secondary"
                           type="button"
                           id="button-addon1"
+                          onClick={() => dispatch(deleteCart(cartProduct.id))}
                         >
                           <i className="bi bi-trash">{/* Delete Product */}</i>
                         </button>
@@ -98,9 +93,17 @@ const CartSidebar = ({ show, handleClose }) => {
             ))}
           </ListGroup>
           <div className="d-flex justify-content-center">
+            <div className="input-group me-2">
+              <label type="text" className="form-control">
+                Total:
+              </label>
+              <label type="text" className="form-control">
+                {}
+              </label>
+            </div>
             <button
               className="btn btn-danger"
-              onClick={() => alert('Carrito comprado')}
+              onClick={() => dispatch(buyCart())}
             >
               Checkout
             </button>

@@ -36,4 +36,30 @@ export const addToCart = (product) => (dispatch) => {
     .finally(() => dispatch(setIsLoading(false)));
 };
 
+export const buyCart = () => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .post(
+      'https://ecommerce-api-react.herokuapp.com/api/v1/purchases',
+      {},
+      getConfig()
+    )
+    .then(() => {
+      dispatch(getPurchases());
+      dispatch(setCart([]));
+    })
+    .finally(() => dispatch(setIsLoading(false)));
+};
+
+export const deleteCart = (id) => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .delete(
+      `https://ecommerce-api-react.herokuapp.com/api/v1/cart/${id}`,
+      getConfig()
+    )
+    .then(() => dispatch(getCart()))
+    .finally(() => dispatch(setIsLoading(false)));
+};
+
 export default cartSlice.reducer;
