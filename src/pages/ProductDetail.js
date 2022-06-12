@@ -12,7 +12,7 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const productsList = useSelector((state) => state.products);
+  const productsSimilar = useSelector((state) => state.products);
 
   useEffect(() => {
     axios
@@ -35,11 +35,12 @@ const ProductDetail = () => {
     setQuantity(1);
   };
 
-  const addProductSimilar = (productsList) => {
+  const addProductSimilar = (productsSimilar) => {
     const product = {
-      id: productsList.id,
+      id: productsSimilar.id,
       quantity: quantity,
     };
+    setQuantity(1);
     dispatch(addToCart(product));
   };
 
@@ -103,20 +104,20 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      {/* ---------------- */}
+      {/* ----------------------------------------------------------------- */}
       <div className="row justify-content-center mt-5" style={{ gap: '15px' }}>
         <h6 className="text-danger ms-5">Discover similar items</h6>
-        {productsList.map((productList) => (
+        {productsSimilar.map((productSimilar) => (
           <div
             className="card"
             style={{ cursor: 'pointer', maxWidth: '250px' }}
-            key={productList.id}
+            key={productSimilar.id}
           >
-            <div onClick={() => navigate(`/products/${productList.id}`)}>
-              <b className="text-center">{productList.title}</b>
+            <div onClick={() => navigate(`/products/${productSimilar.id}`)}>
+              <b className="text-center">{productSimilar.title}</b>
               <div className="d-flex justify-content-center">
                 <img
-                  src={productList.productImgs}
+                  src={productSimilar.productImgs}
                   alt=""
                   style={{ maxWidth: '150px', maxHeight: '150px' }}
                 />
@@ -124,12 +125,12 @@ const ProductDetail = () => {
             </div>
             <div className="input-group mb-3 mt-3">
               <span className="form-control text-center">
-                <b>${productList.price}</b>
+                <b>${productSimilar.price}</b>
               </span>
               <button
                 className="btn btn-success"
                 value={quantity}
-                onClick={() => addProductSimilar(productsList)}
+                onClick={() => addProductSimilar(productSimilar)}
                 onChange={() => setQuantity(1)}
               >
                 Add to cart

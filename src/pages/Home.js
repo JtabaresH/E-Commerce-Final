@@ -14,7 +14,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
-  const { id } = useParams();
   const [search, setSearch] = useState('');
   const [categories, setCategories] = useState([]);
 
