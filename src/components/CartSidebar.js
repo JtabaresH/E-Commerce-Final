@@ -18,8 +18,6 @@ const CartSidebar = ({ show, handleClose }) => {
     navigate(`/products/${cartProduct.category.id}`);
   };
 
-  console.log(cart);
-
   return (
     <div>
       <Offcanvas show={show} onHide={handleClose} placement="end">
