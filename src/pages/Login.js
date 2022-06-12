@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const token = localStorage.getItem('token');
-  const [user, setUser] = useState({});
   const { register, handleSubmit } = useForm([]);
   const navigate = useNavigate();
   const logout = () => {
@@ -93,7 +92,7 @@ const Login = () => {
                 </Form.Group>
                 <div className="d-flex justify-content-center mb-3 gap-2">
                   <Button variant="primary" type="submit">
-                    Submit
+                    Login
                   </Button>
                 </div>
               </Form>
