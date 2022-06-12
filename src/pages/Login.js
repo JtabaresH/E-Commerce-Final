@@ -11,7 +11,6 @@ const Login = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.setItem('token', '');
-    alert('Successfully closed session');
     navigate('/');
   };
 
@@ -24,13 +23,11 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem('token', res.data.data.token);
         navigate('/');
-        alert('Sesión iniciada correctamente');
-        /* setUser(res.data.data.user); */
       })
       .catch((error) => {
         console.log(error.response.status);
         if (error.response.status === 401) {
-          alert('Credenciales incorrectas');
+          alert('Wrong credentials');
         }
       });
   };

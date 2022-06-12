@@ -11,8 +11,8 @@ export default function App() {
     <>
       <HashRouter>
         <Navbar />
+        {isLoading && <LoadingScreen />}
         <Container>
-          {isLoading && <LoadingScreen />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products/:id" element={<ProductDetail />} />

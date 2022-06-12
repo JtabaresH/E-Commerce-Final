@@ -13,13 +13,13 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { setCart } = cartSlice.actions;
+export const { setCartProducts } = cartSlice.actions;
 
 export const getCart = () => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios
     .get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
-    .then((res) => dispatch(setCartProducts(res.data.data?.cart.products)))
+    .then((res) => dispatch(setCartProducts(res.data.data.cart.products)))
     .finally(() => dispatch(setIsLoading(false)));
 };
 
