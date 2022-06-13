@@ -13,10 +13,6 @@ const Login = () => {
     navigate('/');
   };
 
-  const singup = () => {
-    navigate('/singup');
-  };
-
   const submit = (data) => {
     axios
       .post(
