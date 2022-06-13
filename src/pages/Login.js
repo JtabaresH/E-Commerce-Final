@@ -13,6 +13,10 @@ const Login = () => {
     navigate('/');
   };
 
+  const singup = () => {
+    navigate('/singup');
+  };
+
   const submit = (data) => {
     axios
       .post(
@@ -94,7 +98,9 @@ const Login = () => {
                   <Button variant="primary" type="submit">
                     Login
                   </Button>
-                  <p>Don't have an account? </p>
+                  <p>
+                    Don't have an account? <a href="/#/singup">Sing up</a>{' '}
+                  </p>
                 </div>
               </Form>
             </div>
