@@ -4,7 +4,7 @@ const Singup = () => {
   const submit = () => {};
 
   return (
-    <div className="card mt-3">
+    <div className="card mt-3" style={{ maxWidth: '500px' }}>
       <form className="m-3 d-flex flex-column justify-content-center">
         <h2 className="text-center">Sing up</h2>
         <div className="mb-2">
