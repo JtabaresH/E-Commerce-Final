@@ -95,7 +95,7 @@ const Login = () => {
                     Login
                   </Button>
                   <p>
-                    Don't have an account? <a href="/#/singup">Sing up</a>{' '}
+                    Don't have an account? <b>Sing up</b>{/* <a href="/#/singup">Sing up</a> */}{' '}
                   </p>
                 </div>
               </Form>
