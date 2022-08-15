@@ -26,7 +26,7 @@ const Navbar = () => {
           <div>
             <a className="nav-link" href="/">
               <i className="bi bi-cpu">
-                <b> TechShop</b>
+                <b> TechShop </b>
               </i>
             </a>
           </div>
